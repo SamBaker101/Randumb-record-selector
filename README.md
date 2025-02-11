@@ -1,5 +1,5 @@
 # Randumb-record-selector
-A randomizer for Arduino using a TFT touchscreenshield
+A randomizer for Arduino using a TFT touchscreen shield
 
 ## Background
 This project is intended to work as a randomizer to assist with selecting records (Or other media). When the touchscreen is tapped the randomizer displays a random direction (Right or Left), letter(A-Z) and Number(1-31). The idea being that you would start at the given letter and count the number of records in the given direction to select one.
