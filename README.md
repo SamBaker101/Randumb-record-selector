@@ -8,6 +8,8 @@ The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
 It's worth noting that the code as shown now is very quick and dirty and borrows heavily from the below tutorial. It is my intention in creating this repo to revisit the project, clean up and re-write the code and design a housing enclosure for the project. If successful in this I may explore other smaller microcontrollers to reduce the size and power draw of the device.
 
+https://electropeak.com/learn/absolute-beginners-guide-to-tft-lcd-displays-by-arduino/
+
 ## TODO
 
   - Initial refactor
