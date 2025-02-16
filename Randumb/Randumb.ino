@@ -117,7 +117,7 @@ String getRandom(){
     return str_output;
   };
 
-void printText(char* text, uint16_t colour){
+void printText(String text, uint16_t colour){
   tft.setTextColor(colour);
   tft.setCursor(90, 120);
   tft.setTextSize(1);
