@@ -69,26 +69,12 @@ void setup() {
 }
 
 void loop(void) {
-  
-  String str; 
   auto p = ts.getPoint();
   pinMode(LCD_CS, OUTPUT); 
   pinMode(LCD_CD, OUTPUT);
   
   if (p.z > ts.pressureThreshhold) {
-     Serial.print("X = "); Serial.print(p.x);
-     Serial.print("\tY = "); Serial.print(p.y);
-    Serial.print(F(" Screen fill              \n"));
-    tft.fillScreen(getRandomColor());
-    delay(1);
-    tft.fillScreen(getRandomColor());
-    delay(1);
-    str = getRandom();
-    tft.fillScreen(PURPLE);
-    tft.setTextColor(CYAN);
-    tft.setCursor(00, 20);
-    tft.setTextSize(6);
-    tft.println(str);
+    writeRandom();
   }
   delay(100);
 }
@@ -116,6 +102,24 @@ String getRandom(){
 
     return str_output;
   };
+
+void writeRandom(){
+    String str; 
+    Serial.print("X = "); Serial.print(p.x);
+    Serial.print("\tY = "); Serial.print(p.y);
+    Serial.print(F(" Screen fill              \n"));
+    tft.fillScreen(getRandomColor());
+    delay(1);
+    tft.fillScreen(getRandomColor());
+    delay(1);
+    str = getRandom();
+    tft.fillScreen(PURPLE);
+    tft.setTextColor(CYAN);
+    tft.setCursor(00, 20);
+    tft.setTextSize(6);
+    tft.println(str);
+
+};
 
 void printText(String text, uint16_t colour){
   tft.setTextColor(colour);
