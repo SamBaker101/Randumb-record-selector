@@ -47,6 +47,7 @@ int i = 0;
 TSPoint p;
 
 void setup() {
+  uint16_t identifier;
 
   Serial.begin(115200);
   Serial.println(F("TFT LCD test"));
@@ -54,17 +55,13 @@ void setup() {
   randomSeed(analogRead(5));
   
   tft.reset();
-  
-  uint16_t identifier = bootSerial();
-
+  identifier = bootSerial();
   tft.begin(identifier);
 
-  
   delay(500);
   bootText();
 
   Serial.print(F("Screen fill              "));
-  
   return 0;
 }
 
@@ -83,7 +80,7 @@ int getRandomColor(){
   return random(0, 0xFFFF);
   }
 
-String getRandom(){
+String getRandomString(){
     int dir = 0;
     int letter = 0;
     int num = 0;
@@ -98,9 +95,7 @@ String getRandom(){
     str_letter = (char) (letter + 65);
     str_num = String(num);
 
-    str_output = str_letter + " \n" + str_dir + " \n" + str_num;
-
-    return str_output;
+    return str_letter + " \n" + str_dir + " \n" + str_num;
   };
 
 void writeRandom(){
@@ -112,7 +107,7 @@ void writeRandom(){
     delay(1);
     tft.fillScreen(getRandomColor());
     delay(1);
-    str = getRandom();
+    str = getRandomString();
     tft.fillScreen(PURPLE);
     tft.setTextColor(CYAN);
     tft.setCursor(00, 20);

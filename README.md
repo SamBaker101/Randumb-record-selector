@@ -6,9 +6,7 @@ This project is intended to work as a randomizer to assist with selecting record
 
 The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
-It's worth noting that the code as shown now is very quick and dirty and borrows heavily from the below tutorial. It is my intention in creating this repo to revisit the project, clean up and re-write the code and design a housing enclosure for the project. If successful in this I may explore other smaller microcontrollers to reduce the size and power draw of the device.
-
-https://electropeak.com/learn/absolute-beginners-guide-to-tft-lcd-displays-by-arduino/
+I wrote a very quick and dirty version of this code which I uploaded onto one of my Arduinos and have been using for quite a while. It's my hope though to clean this code up and extend it to make a more robust device. I've begun the process of refactoring but there is still more to do. I'd also like to look into making an enclosure using freeCAD (or similar) to hold the randomizer.
 
 ## TODO
 
@@ -19,3 +17,8 @@ https://electropeak.com/learn/absolute-beginners-guide-to-tft-lcd-displays-by-ar
 
   - Design and print enclosure
   - Investigate alternate microcontrollers, screens, inputs
+
+## Resources
+
+https://electropeak.com/learn/absolute-beginners-guide-to-tft-lcd-displays-by-arduino/
+
