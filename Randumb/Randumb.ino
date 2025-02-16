@@ -52,85 +52,15 @@ void setup() {
   Serial.println(F("TFT LCD test"));
 
   randomSeed(analogRead(5));
-
-#ifdef USE_ADAFRUIT_SHIELD_PINOUT
-  Serial.println(F("Using Adafruit 2.4\" TFT Arduino Shield Pinout"));
-#else
-  Serial.println(F("Using Adafruit 2.4\" TFT Breakout Board Pinout"));
-#endif
-  Serial.print("TFT size is ");
-  Serial.print(tft.width());
-  Serial.print("x");
-  Serial.println(tft.height());
-
+  
   tft.reset();
-
-  uint16_t identifier = tft.readID();
-
-  if (identifier == 0x9325) {
-    Serial.println(F("Found ILI9325 LCD driver"));
-  } else if (identifier == 0x9328) {
-    Serial.println(F("Found ILI9328 LCD driver"));
-  } else if (identifier == 0x7575) {
-    Serial.println(F("Found HX8347G LCD driver"));
-  } else if (identifier == 0x9341) {
-    Serial.println(F("Found ILI9341 LCD driver"));
-  } else if (identifier == 0x8357) {
-    Serial.println(F("Found HX8357D LCD driver"));
-  } else {
-    Serial.print(F("Unknown LCD driver chip: "));
-    Serial.println(identifier, HEX);
-    Serial.println(F("If using the Adafruit 2.4\" TFT Arduino shield, the line:"));
-    Serial.println(F("  #define USE_ADAFRUIT_SHIELD_PINOUT"));
-    Serial.println(F("should appear in the library header (Adafruit_TFT.h)."));
-    Serial.println(F("If using the breakout board, it should NOT be #defined!"));
-    Serial.println(F("Also if using the breakout, double-check that all wiring"));
-    Serial.println(F("matches the tutorial."));
-    return;
-  }
-
   tft.begin(identifier);
 
-  Serial.println(F("Benchmark                Time (microseconds)"));
+  bootSerial();
+  delay(500);
+  bootText();
 
   Serial.print(F("Screen fill              "));
-  //Serial.println(FillScreen());
-  delay(500);
-
-  tft.setTextColor(getRandomColor());
-  tft.setCursor(90, 120);
-  tft.setTextSize(1);
-  tft.println("Kitty");
-  delay(75);
-  tft.fillScreen(getRandomColor());
-  tft.setTextColor(getRandomColor());
-  tft.setCursor(70, 120);
-  tft.setTextSize(3);
-  tft.println("Kitty");
-  delay(75);
-  tft.fillScreen(getRandomColor());
-  tft.setTextColor(getRandomColor());
-  tft.setCursor(40, 120);
-  tft.setTextSize(5);
-  tft.println("Kitty");
-  delay(75);
-  tft.fillScreen(getRandomColor());
-  tft.setTextColor(getRandomColor());
-  tft.setCursor(20, 120);
-  tft.setTextSize(7);
-  tft.println("Kitty");
-  delay(75);
-  tft.fillScreen(getRandomColor());
-  tft.setTextColor(getRandomColor());
-  tft.setCursor(20, 120);
-  tft.setTextSize(9);
-  tft.println("Kitty");
-  delay(300);
-  tft.fillScreen(PURPLE);
-  delay(500);
-
-  Serial.print(F("Screen fill              "));
-  //tft.reset();
   
   return 0;
 }
@@ -183,3 +113,62 @@ String getRandom(){
 
     return str_output;
   };
+
+void printText(string text, uint16_t color){
+  tft.setTextColor(colour);
+  tft.setCursor(90, 120);
+  tft.setTextSize(1);
+  tft.println(text);
+};
+
+void bootText(){
+  delay(75);
+  printText("Kitty", getRandomColor());
+  delay(75);
+  printText("Kitty", getRandomColor());
+  delay(75);
+  printText("Kitty", getRandomColor());
+  delay(75);
+  printText("Kitty", getRandomColor());
+  delay(300);
+  tft.fillScreen(PURPLE);
+  delay(500);
+};
+
+void bootSerial(){
+#ifdef USE_ADAFRUIT_SHIELD_PINOUT
+  Serial.println(F("Using Adafruit 2.4\" TFT Arduino Shield Pinout"));
+#else
+  Serial.println(F("Using Adafruit 2.4\" TFT Breakout Board Pinout"));
+#endif
+  Serial.print("TFT size is ");
+  Serial.print(tft.width());
+  Serial.print("x");
+  Serial.println(tft.height());
+
+  uint16_t identifier = tft.readID();
+
+  if (identifier == 0x9325) {
+    Serial.println(F("Found ILI9325 LCD driver"));
+  } else if (identifier == 0x9328) {
+    Serial.println(F("Found ILI9328 LCD driver"));
+  } else if (identifier == 0x7575) {
+    Serial.println(F("Found HX8347G LCD driver"));
+  } else if (identifier == 0x9341) {
+    Serial.println(F("Found ILI9341 LCD driver"));
+  } else if (identifier == 0x8357) {
+    Serial.println(F("Found HX8357D LCD driver"));
+  } else {
+    Serial.print(F("Unknown LCD driver chip: "));
+    Serial.println(identifier, HEX);
+    Serial.println(F("If using the Adafruit 2.4\" TFT Arduino shield, the line:"));
+    Serial.println(F("  #define USE_ADAFRUIT_SHIELD_PINOUT"));
+    Serial.println(F("should appear in the library header (Adafruit_TFT.h)."));
+    Serial.println(F("If using the breakout board, it should NOT be #defined!"));
+    Serial.println(F("Also if using the breakout, double-check that all wiring"));
+    Serial.println(F("matches the tutorial."));
+    return;
+  }
+
+  Serial.println(F("Benchmark                Time (microseconds)"));
+};
