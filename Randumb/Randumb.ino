@@ -54,9 +54,12 @@ void setup() {
   randomSeed(analogRead(5));
   
   tft.reset();
+  
+  uint16_t identifier = bootSerial();
+
   tft.begin(identifier);
 
-  bootSerial();
+  
   delay(500);
   bootText();
 
@@ -114,7 +117,7 @@ String getRandom(){
     return str_output;
   };
 
-void printText(string text, uint16_t color){
+void printText(char* text, uint16_t colour){
   tft.setTextColor(colour);
   tft.setCursor(90, 120);
   tft.setTextSize(1);
@@ -135,7 +138,7 @@ void bootText(){
   delay(500);
 };
 
-void bootSerial(){
+uint16_t bootSerial(){
 #ifdef USE_ADAFRUIT_SHIELD_PINOUT
   Serial.println(F("Using Adafruit 2.4\" TFT Arduino Shield Pinout"));
 #else
