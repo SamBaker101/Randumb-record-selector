@@ -8,6 +8,14 @@ The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
 I wrote a very quick and dirty version of this code which I uploaded onto one of my Arduinos and have been using for quite a while. It's my hope though to clean this code up and extend it to make a more robust device. I've begun the process of refactoring but there is still more to do. I'd also like to look into making an enclosure using freeCAD (or similar) to hold the randomizer.
 
+## Hardware
+
+2.4 inch LCD TFT Screen:
+https://www.canadarobotix.com/products/2316
+
+Arduino Uno
+https://docs.arduino.cc/hardware/uno-rev3/
+
 ## TODO
 
   - Initial refactor
