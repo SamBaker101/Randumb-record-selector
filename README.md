@@ -11,10 +11,23 @@ I wrote a very quick and dirty version of this code which I uploaded onto one of
 ## Hardware
 
 2.4 inch LCD TFT Screen:
+
 https://www.canadarobotix.com/products/2316
 
 Arduino Uno
+
 https://docs.arduino.cc/hardware/uno-rev3/
+
+
+## Models
+
+The models I created for this project were made using FreeCAD 1.0 which is a free and open source 3d Parametric CAD program. FreeCAD can be downloaded at the following link to access or modify the files:
+
+https://www.freecad.org/
+
+### device.FCstd
+
+This is a combined model of the Arduino Uno and the TFT screen.
 
 ## TODO
 
