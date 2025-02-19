@@ -66,11 +66,11 @@ void setup() {
 }
 
 void loop(void) {
-  auto p = ts.getPoint();
+  auto point = ts.getPoint();
   pinMode(LCD_CS, OUTPUT); 
   pinMode(LCD_CD, OUTPUT);
   
-  if (p.z > ts.pressureThreshhold) {
+  if (point.z > ts.pressureThreshhold) {
     writeRandom();
   }
   delay(100);
