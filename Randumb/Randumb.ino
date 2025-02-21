@@ -114,23 +114,28 @@ void writeRandom(){
 
 };
 
-void printText(String text, uint16_t colour){
+void printText(String text, uint16_t colour, uint16_t size){
+  tft.fillScreen(PURPLE);
   tft.setTextColor(colour);
-  tft.setCursor(90, 120);
-  tft.setTextSize(1);
+  tft.setCursor(90 - size*10, 120);
+  tft.setTextSize(size);
   tft.println(text);
 };
 
 void bootText(){
-  tft.fillScreen(PURPLE);
-  delay(75);
-  printText("Kitty", getRandomColor());
-  delay(75);
-  printText("Kitty", getRandomColor());
-  delay(75);
-  printText("Kitty", getRandomColor());
-  delay(75);
-  printText("Kitty", getRandomColor());
+  printText("Kitty", getRandomColor(), 1);
+  delay(30);
+  printText("Kitty", getRandomColor(), 2);
+  delay(30);
+  printText("Kitty", getRandomColor(), 3);
+  delay(30);
+  printText("Kitty", getRandomColor(), 4);
+  delay(30);
+  printText("Kitty", getRandomColor(), 5);
+  delay(30);
+  printText("Kitty", getRandomColor(), 6);
+  delay(30);
+  printText("Kitty", getRandomColor(), 7);
   delay(300);
   tft.fillScreen(PURPLE);
   delay(500);
