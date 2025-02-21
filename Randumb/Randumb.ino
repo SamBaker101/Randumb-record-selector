@@ -46,17 +46,15 @@ TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 int i = 0;
 TSPoint p;
 
+uint16_t identifier;
+ 
 void setup() {
-  uint16_t identifier;
-
   Serial.begin(115200);
   Serial.println(F("TFT LCD test"));
 
   randomSeed(analogRead(5));
   
-  tft.reset();
-  identifier = bootSerial();
-  tft.begin(identifier);
+  bootUp();
 
   delay(500);
   bootText();
@@ -124,6 +122,7 @@ void printText(String text, uint16_t colour){
 };
 
 void bootText(){
+  tft.fillScreen(PURPLE);
   delay(75);
   printText("Kitty", getRandomColor());
   delay(75);
@@ -137,18 +136,16 @@ void bootText(){
   delay(500);
 };
 
-uint16_t bootSerial(){
+uint16_t bootUp(){
+    tft.reset();
 #ifdef USE_ADAFRUIT_SHIELD_PINOUT
   Serial.println(F("Using Adafruit 2.4\" TFT Arduino Shield Pinout"));
 #else
   Serial.println(F("Using Adafruit 2.4\" TFT Breakout Board Pinout"));
 #endif
-  Serial.print("TFT size is ");
-  Serial.print(tft.width());
-  Serial.print("x");
-  Serial.println(tft.height());
 
-  uint16_t identifier = tft.readID();
+
+  identifier = tft.readID();
 
   if (identifier == 0x9325) {
     Serial.println(F("Found ILI9325 LCD driver"));
@@ -169,8 +166,12 @@ uint16_t bootSerial(){
     Serial.println(F("If using the breakout board, it should NOT be #defined!"));
     Serial.println(F("Also if using the breakout, double-check that all wiring"));
     Serial.println(F("matches the tutorial."));
-    return;
   }
+    tft.begin(identifier);
 
-  Serial.println(F("Benchmark                Time (microseconds)"));
+    Serial.print("TFT size is ");
+    Serial.print(tft.width());
+    Serial.print("x");
+    Serial.println(tft.height());
+    return;
 };
