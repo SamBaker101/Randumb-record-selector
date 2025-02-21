@@ -8,6 +8,18 @@ The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
 I wrote a very quick and dirty version of this code which I uploaded onto one of my Arduinos and have been using for quite a while. It's my hope though to clean this code up and extend it to make a more robust device. I've begun the process of refactoring but there is still more to do. I'd also like to look into making an enclosure using freeCAD (or similar) to hold the randomizer.
 
+## Requirements
+
+The following headers are required to run this project:
+
+  - #include \<Adafruit_GFX.h\>
+
+  - #include \<Adafruit_TFTLCD.h\>
+  
+  - #include "TouchScreen.h"
+
+All three of these should be downloadable through the Arduino IDE
+
 ## Hardware
 
 2.4 inch LCD TFT Screen:
