@@ -6,7 +6,7 @@ This project is intended to work as a randomizer to assist with selecting record
 
 The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
-I wrote a very quick and dirty version of this code which I uploaded onto one of my Arduinos and have been using for quite a while. It's my hope though to clean this code up and extend it to make a more robust device. I've begun the process of refactoring but there is still more to do. I'd also like to look into making an enclosure using freeCAD (or similar) to hold the randomizer.
+![image](model_tl.PNG)
 
 ## Requirements
 
@@ -43,7 +43,6 @@ This is a combined model of the Arduino Uno and the TFT screen.
 
 ## TODO
 
-  - Initial refactor
   - Replace polling with interrupt based touch detection
   - Verify randomization is true(ish)
   - Look into sleep mode or suspended operation
