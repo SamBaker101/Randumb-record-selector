@@ -41,6 +41,10 @@ https://www.freecad.org/
 
 This is a combined model of the Arduino Uno and the TFT screen.
 
+### case_bottom_01.FCStd and case_top_01.FCStd
+
+This is a model of a case which I am designing to hold the randomizer. At this point this is still a rough draft and is not functional. I will update this readme once the case has been completed and tested.
+
 ## TODO
 
   - Replace polling with interrupt based touch detection
