@@ -6,7 +6,7 @@ This project is intended to work as a randomizer to assist with selecting record
 
 The code is written to run on an Arduino using a TFT touchscreen from Adafruit
 
-![image](model_tl.PNG)
+![image](assembly_model_01.PNG)
 
 ## Requirements
 
@@ -51,7 +51,8 @@ This is a model of a case which I am designing to hold the randomizer. At this p
   - Verify randomization is true(ish)
   - Look into sleep mode or suspended operation
 
-  - Design and print enclosure
+  - Fit test and refine enclosure draft
+  - Print finalized enclosure 
   - Investigate alternate microcontrollers, screens, inputs
 
 ## Resources
